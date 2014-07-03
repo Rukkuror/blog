@@ -42,13 +42,10 @@ test:
 #
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
 #
-# You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
-  database: blogger_production
-  username: blogger
-  password: <%= ENV['BLOGGER_DATABASE_PASSWORD'] %>
+  database: blogger_development
+  username: root
+  password: nimbu
+  
