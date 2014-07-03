@@ -1,0 +1,52 @@
+<div class="form">
+  <label>Title: </label>
+  <%= f.text_field :title, :required => true, :class=>"form-control", :style=>"width:96% !important;" %>
+</div>  
+<div class="form-control">
+  <label>Content: </label>
+  <%= f.cktext_area :content, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'Mini'} %>
+  <br/>
+</div>
+<div class="form-control">
+  <label>Tags: </label> 
+  <%@list = @post.tags.map{|u| {:id => u.id, :content=> u.content}} %>
+  <%= text_field_tag("post[tag_ids][]","", "data-pre" => @list.to_json, :class=>"form-control")%>
+  <br/>
+</div>
+<div class="form-control">
+  <label>Image: </label> 
+  <% if @post.avatar.present?%>
+    <%= image_tag(@post.avatar.thumb)%><br/>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  <% else %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  <% end %>
+</div>
+<br/>
+<% if action_name == "new"%>
+  <%= f.submit "Create Post", :class=>"btn btn-success" %>
+<% else %>
+  <%= f.submit "Update Post", :class=>"btn btn-success" %>
+<% end %>
+<%= link_to "Cancel", admins_posts_path, :class=> "btn btn-primary"%>
+
+<%#=select_tag 'post[tags]', options_for_select(
+Tag.all.map {|s| [s.content, s.id]}
+), :multiple => true, :size => 10%>
+
+<script type="text/javascript" src="/assets/jquery.tokeninput.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/token-input.css" />
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#post_tag_ids_").tokenInput("/admins/posts/search", {
+      prePopulate: $("#post_tag_ids_").data("pre"),
+     propertyToSearch: 'content'
+    });
+  });
+  
+</script>
+<style>
+  .token-input-list { border: 1px solid #CCCCCC !important; width: 100% !important; border-radius: 4px;}
+</style>

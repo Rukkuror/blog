@@ -1,0 +1,30 @@
+<div class="span12">
+  <div class="span9" style="float:left;margin:0px auto">
+    <div class="default-set">
+      <%=link_to @post.title, post_path(@post.title), :class => "post_title_link"%>
+        <div class="posted_details_panel" style="height:40px;">
+          <div class="date_portion">
+            <b> Posted:</b>
+            <%=@post.created_at.strftime("%A, %B %d, %Y")%>
+          </div>
+          <div class="sharing_tool_portion">
+            <%= render "blog_sharing_tools", :post => @post %>
+          </div>      
+        </div>
+        <p><%=raw @post.content%></p>
+        <% if @post.avatar?%>
+          <center><%=image_tag @post.avatar%></center>
+        <%end%>
+        <br/>
+      </div>
+    </div>
+    <div class="span3" style="float:left">
+      <%= render "right_bar" %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .twitter-share-button {width: 90px !important; margin-left: -12px;}
+  .fb_iframe_widget span {width: 90px !important;}
+</style>             

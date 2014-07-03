@@ -1,0 +1,23 @@
+<ul class="nav navbar-nav navbar-right">
+  <% unless current_admin.present? %>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+  <% else %>
+    <li><%= link_to "Tags", admins_tags_path %></li>
+    <li><%= link_to "Admin Posts", admins_posts_path %></li>
+    <li><%= link_to  "Sign out as admin", destroy_admin_session_path, method: :delete %></li>
+  <% end %>
+  <!--
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+      
+    </ul>
+  </li>
+  -->
+</ul>
+

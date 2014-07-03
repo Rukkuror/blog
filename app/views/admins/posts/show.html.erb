@@ -1,0 +1,19 @@
+<h3> Post Details</h3>
+<% unless @post.blank? %>
+  <table class="table">
+    <tr>
+      <th>Title: <%= @post.title%></th>
+    </tr>
+    <tr>
+      <td><b>Description:</b><br/><br/><%= raw(@post.content)%></td>
+    </tr>
+    <% unless @post.avatar.blank? %>
+      <tr>
+        <td><b>Image:</b><br/><%= image_tag(@post.avatar.thumb)%></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<%= link_to "Edit", edit_admins_post_path(@post), :class => "btn btn-success"%> 
+<%= link_to "Delete", admins_post_path(@post), :confirm=>"Are you sure?", :method=>"delete", :class => "btn btn-danger"%>
+<%= link_to "Back", admins_posts_path, :class=> "btn btn-primary"%>

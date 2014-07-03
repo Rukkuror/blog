@@ -1,0 +1,32 @@
+<ul class="hierarchy">
+  <%unless @recent_posts.blank?%>
+    <div class = "label_module">
+      <table>
+        <tr>
+          <td><%= image_tag('label_icon.png', :class => "va-m") %></td>
+          <td style="vertical-align:bottom;"><%=link_to "Recent", "javascript:void(0)", :class => "recent_list_opener"%></td>
+        </tr>
+      </table>
+    </div>
+    <div class = "recent_list" style = "display:block;padding-left:5px;"%>
+      <% @recent_posts.each do |post| %>
+        <li class="posts_displayed" style="list-style-type: square;margin-left:15px;">
+          <%= link_to post.title, post_path(post.title)%>
+        </li>
+      <% end %>
+    </div>
+    <div class="end_of_line"></div>
+  <% end %>
+  
+</ul>
+  
+  
+<script>
+  $(document).ready(function(){ 
+    $( ".recent_list_opener" ).click(function() {
+      $( ".recent_list" ).toggle( "fast", function() {
+        // Animation complete.
+      });
+    });
+  });
+</script> 

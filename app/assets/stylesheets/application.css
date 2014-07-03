@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap_and_overrides
+ *= require_tree .
+ *= require_self
+ */
+ body {
+    background-color: #FBF3DE;
+    color: #7F8C8D;
+    line-height: 1.29;
+    overflow-x: hidden;
+    font-family:'Chackduster', sans-serif;
+}
+
+.btn { font-family:'Chackduster', sans-serif; }
+
+ @font-face {
+    font-family: 'Chackboard';
+    src: url('Chalkboard-Bold.eot');
+    src: url('Chalkboard-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Chalkboard-Bold.woff') format('woff'),
+    url('Chalkboard-Bold.ttf') format('truetype'),
+    url('Chalkboard-Bold.svg#latobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chackduster';
+    src: url('Chalkduster.eot');
+    src: url('Chalkduster.eot?#iefix') format('embedded-opentype'),
+    url('Chalkduster.woff') format('woff'),
+    url('Chalkduster.ttf') format('truetype'),
+    url('Chalkduster.svg#latobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.hierarchy {
+    font: 13px;
+    font-family:'Chackduster', sans-serif;
+    margin-top: 10px;
+    list-style: none;
+}
+ul.posts_hierarchy a:hover {
+    text-decoration: underline;
+}
+ul.posts_hierarchy li {
+    list-style-type: square;
+}
+.posted_details_panel {
+    border-bottom: 1px solid #E7E7E7;
+    border-top: 1px solid #E7E7E7;
+    line-height: 30px;
+}
+.archive_module a, .label_module a {
+    color: #FFA500;
+    font-family:'Chackduster', sans-serif;
+    font-size: 25px;
+    padding: 5px;
+}
+.archive_module a:hover, .label_module a:hover {
+    color: #01849F;
+}
+.post_title_link {
+    color: #E31700;
+    font-family:'Chackduster', sans-serif;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+.date_portion {
+    float: left;
+    line-height: 40px !important;
+    color: #000;
+}
+.sharing_tool_portion {
+    float: right;
+    line-height: 12px !important;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,25 @@
+<%= link_to "Create New Post", new_admins_post_path, :class=> "btn btn-primary"%><br/><br/>
+<% unless @posts.blank? %>
+  <table class="table">
+    <tr>
+      <th>S No</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  
+    <% @posts.each_with_index do |post, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= truncate(post.content, :length=>100)%></td>
+        <td><%= image_tag(post.avatar.small) unless post.avatar.blank?%></td>
+        <td>
+          <%= link_to "View", admins_post_path(post), :class => "btn btn-info"%> 
+          <%= link_to "Edit", edit_admins_post_path(post), :class => "btn btn-success"%> 
+          <%= link_to "Delete", admins_post_path(post), :confirm=>"Are you sure?", :method=>"delete", :class => "btn btn-danger"%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+

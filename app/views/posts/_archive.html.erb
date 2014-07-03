@@ -1,0 +1,73 @@
+<%blog_archive%>
+<ul class="hierarchy">
+  <%unless @results.blank?%>
+    <div class = "archive_module">
+      <table>
+        <tr>
+          <td><%= image_tag('archive_icon.png', :class => "va-m") %></td>
+          <td style="vertical-align:bottom;"><%=link_to "Archive", "javascript:void(0)", :class => "archive_list_opener"%></td>
+        </tr>
+      </table>
+    </div>
+    <div class = "archive_list" style = "display:block;padding-left:20px;"%>
+      <%@results.keys.each do |result|%>
+        <li class="year_<%=result%>">
+          <%= link_to '►'+result.to_s, "javascript:void(0)", :class => "year-link", :id => ""+result.to_s %>
+        </li>
+        <div id="list-month_<%= result%>" style="display:none;">
+          <ul class="month_post_hierarchy_<%=result%>" style="list-style:none;margin:0px;">      
+            <%@results[result].keys.each do |month|%>
+              <li class="month_<%=month%>"style="margin-left:10px;">
+                <%= link_to '►'+month, "javascript:void(0)",:class => "month-link", :id => ""+month+result.to_s %>
+              </li>          
+              <%convert_month_year(month, result)%>
+              <div id="list-posts_<%= month%><%=result%>" style ="display: none;">
+                <ul class="posts_hierarchy">
+                  <%unless @posts.blank?%>
+                    <% @posts.each do |post|%>
+                      <li class="posts_displayed" style="margin-left:5px;">
+                        <%= link_to post.title, post_path(post.title)%>
+                      </li>
+                    <%end%>
+                  <%end%>
+                </ul>
+              </div>
+            <%end%>
+          </ul>  
+        </div>
+      <%end%>
+    </div>
+  <div class="end_of_line"></div>
+  <%end%>
+</ul>
+
+<script>
+  $(document).ready(function(){       
+    //$('.post_count ').html(" (<%=@posts_counts%>)");  
+    
+    $( ".archive_list_opener" ).click(function() {
+      $( ".archive_list" ).toggle( "fast", function() {
+        // Animation complete.
+      });
+    });
+    $(".year-link").click(function(){
+      var id = $(this).attr('id');
+      $('#list-month_'+id).toggle("slow");
+      if ($(this).text() == '▼'+id){
+        $(this).text('►'+id);
+      }else{
+        $(this).text('▼'+id);
+      }
+    });
+    $(".month-link").click(function(){
+      var id = $(this).attr('id');
+      $('#list-posts_'+id).toggle("slow");
+      if ($(this).text() == '▼'+id.slice(0, -4)){
+        $(this).text('►'+id.slice(0, -4));
+      }else{
+        $(this).text('▼'+id.slice(0, -4));
+      }
+    });
+
+  });
+</script>

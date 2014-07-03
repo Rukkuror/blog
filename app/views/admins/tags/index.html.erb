@@ -1,0 +1,23 @@
+<%= link_to "Create New Tag", new_admins_tag_path, :class=> "btn btn-primary"%><br/><br/>
+<% unless @tags.blank? %>
+  <table class="table">
+    <tr>
+      <th>S No</th>
+      <th>Tag Name</th>
+      <th>Actions</th>
+    </tr>
+  
+    <% @tags.each_with_index do |tag, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= tag.content%></td>
+        <td>
+          <%= link_to "View", admins_tag_path(tag), :class => "btn btn-info"%> 
+          <%= link_to "Edit", edit_admins_tag_path(tag), :class=>"btn btn-success"%> 
+          <%= link_to "Delete", admins_tag_path(tag), :confirm=>"Are you sure?", :method=>"delete", :class=>"btn btn-danger"%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+

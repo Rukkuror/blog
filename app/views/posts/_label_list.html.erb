@@ -1,0 +1,33 @@
+<%blog_label%>
+<ul class="hierarchy">
+  <%unless @result_hash.blank?%>
+    <div class = "label_module">
+      <table>
+        <tr>
+          <td><%= image_tag('label_icon.png', :class => "va-m") %></td>
+          <td style="vertical-align:bottom;"><%=link_to "Tags", "javascript:void(0)", :class => "label_list_opener"%></td>
+        </tr>
+      </table>
+    </div>
+    <div class = "label_list" style = "display:block;padding-left:20px;list-style-type:square"%>
+      <%@result_hash.sort.each do |key, value|%>
+        <li>
+          <%= link_to "#{key}", posts_path(:label => key) %> <%= "(#{value})" %>
+        </li>
+      <% end %>
+    </div>
+    <div class="end_of_line"></div>
+  <% end %>
+  
+</ul>
+  
+  
+<script>
+  $(document).ready(function(){ 
+    $( ".label_list_opener" ).click(function() {
+      $( ".label_list" ).toggle( "fast", function() {
+        // Animation complete.
+      });
+    });
+  });
+</script>  

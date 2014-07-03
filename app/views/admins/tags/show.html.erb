@@ -1,0 +1,11 @@
+<h3> Tag Details</h3>
+<% unless @tag.blank? %>
+  <table class="table">
+    <tr>
+      <th>Tag Name: <%= @tag.content %></th>
+    </tr>
+  </table>
+<% end %>
+<%= link_to "Edit", edit_admins_tag_path(@tag), :class => "btn btn-success"%> 
+<%= link_to "Delete", admins_tag_path(@tag), :confirm=>"Are you sure?", :method=>"delete", :class => "btn btn-danger"%>
+<%= link_to "Back", admins_tags_path, :class=> "btn btn-primary"%>

@@ -1,0 +1,7 @@
+Title: <%= f.text_field :content, :required => true %><br />
+<% if action_name == "new"%>
+  <%= f.submit "Create Tag", :class=>"btn btn-success" %>
+<% else %>
+  <%= f.submit "Update Tag", :class=>"btn btn-success" %>
+<% end %>
+<%= link_to "Cancel", admins_tags_path, :class=> "btn btn-primary"%>
