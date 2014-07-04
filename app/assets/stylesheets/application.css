@@ -73,7 +73,7 @@ ul.posts_hierarchy li {
     color: #01849F;
 }
 .post_title_link {
-    color: #E31700;
+    color: #5bb75b;
     font-family:'Chackduster', sans-serif;
     font-size: 30px;
     margin: 0;
@@ -90,4 +90,5 @@ ul.posts_hierarchy li {
     line-height: 12px !important;
     margin-top: 10px;
 }
+.posted{ color: #E31700}
 

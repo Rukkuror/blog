@@ -4,7 +4,7 @@
       <%=link_to @post.title, post_path(@post.title), :class => "post_title_link"%>
         <div class="posted_details_panel" style="height:40px;">
           <div class="date_portion">
-            <b> Posted:</b>
+            <b class="posted"> Posted:</b>
             <%=@post.created_at.strftime("%A, %B %d, %Y")%>
           </div>
           <div class="sharing_tool_portion">
