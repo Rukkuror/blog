@@ -26,7 +26,8 @@
                   <%unless @posts.blank?%>
                     <% @posts.each do |post|%>
                       <li class="posts_displayed" style="margin-left:5px;">
-                        <%= link_to post.title, post_path(post.title)%>
+                        <% @title = truncate(post.title, :length => 23) %>
+                        <%= link_to @title, post_path(post.title)%>
                       </li>
                     <%end%>
                   <%end%>

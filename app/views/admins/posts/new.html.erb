@@ -1,4 +1,4 @@
-<div class="span6">
+<div class="span10">
   <%= form_for(@post, :url => {:controller =>"admins/posts", :action=>"create"}, :html => {:multipart => true} ) do |builder| %>
     <%= render "form", :f => builder  %>
   <% end%>

@@ -3,6 +3,7 @@
   <table class="table">
     <tr>
       <th>S No</th>
+      <th>Title</th>
       <th>Description</th>
       <th>Image</th>
       <th>Actions</th>
@@ -11,7 +12,8 @@
     <% @posts.each_with_index do |post, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= truncate(post.content, :length=>100)%></td>
+        <td><%= truncate(post.title, :length =>20) %></td>
+        <td><%= truncate(post.content, :length=>50)%></td>
         <td><%= image_tag(post.avatar.small) unless post.avatar.blank?%></td>
         <td>
           <%= link_to "View", admins_post_path(post), :class => "btn btn-info"%> 

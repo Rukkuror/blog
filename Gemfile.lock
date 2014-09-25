@@ -46,6 +46,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     commonjs (0.2.7)
+    daemon_controller (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -79,6 +80,10 @@ GEM
     multi_json (1.10.1)
     mysql2 (0.3.16)
     orm_adapter (0.5.0)
+    passenger (4.0.48)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -164,6 +169,7 @@ DEPENDENCIES
   less-rails
   mini_magick
   mysql2
+  passenger
   pg
   rails (= 4.1.1)
   rails_12factor
