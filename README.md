@@ -1,2 +1,5 @@
-blog
+Blog
 ====
+
+Blog Application
+
